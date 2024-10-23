@@ -29,7 +29,7 @@ import pageObjectsPack.SingleExpenseEntryWindow;
 import reusableClasses.BaseTestClass;
 
 public class SmokeTestCase1 extends BaseTestClass{
-	static String cpyDate="10/10/2024" ;
+	static String cpyDate ;
 
 	DataFormatter formatter = new DataFormatter();
 	@DataProvider(name="driveTest")
@@ -53,7 +53,7 @@ public class SmokeTestCase1 extends BaseTestClass{
 		return data;
 	}
 	
-	@Test(dataProvider="driveTest",enabled=false,priority=0)
+	@Test(dataProvider="driveTest",enabled=true,priority=0)
 	public void addingClients(String per_Org,String fName,String lName,String orgName,String project,String activity,String fromTime,String toTime,String expenseType,String expenseAmount,String expenseQty) {
 		SoftAssert softAssert = new SoftAssert();
 		PageFactory.initElements(driver, ClientPage.class);
@@ -90,7 +90,7 @@ public class SmokeTestCase1 extends BaseTestClass{
 		}
 	}
 	
-	@Test(dataProvider="driveTest",enabled=false,priority=1)
+	@Test(dataProvider="driveTest",enabled=true,priority=1)
 	public void project(String per_Org,String fName,String lName,String orgName,String project,String activity,String fromTime,String toTime,String expenseType,String expenseAmount,String expenseQty) {
 		SoftAssert softAssert = new SoftAssert();
 		String cliName = null;
@@ -117,7 +117,7 @@ public class SmokeTestCase1 extends BaseTestClass{
 		softAssert.assertEquals(actBannerMsg, expBannerMsg);
 	}
 	
-	@Test(dataProvider="driveTest",enabled=false, priority=2)
+	@Test(dataProvider="driveTest",enabled=true, priority=2)
 	public void timeEntries(String per_Org,String fName,String lName,String orgName,String project,String activity,String fromTime,String toTime,String expenseType,String expenseAmount,String expenseQty) throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		String cliName = null;
@@ -202,7 +202,7 @@ public class SmokeTestCase1 extends BaseTestClass{
 		softAssert.assertEquals(actBannerMsg, expBannerMsg);	
 	}
 
-	@Test(dataProvider="driveTest",enabled=false, priority=3)
+	@Test(dataProvider="driveTest",enabled=true, priority=3)
 	public void expenseEntries(String per_Org,String fName,String lName,String orgName,String project,String activity,String fromTime,String toTime,String expenseType,String expenseAmount,String expenseQty) throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		String cliName = null;
@@ -293,6 +293,7 @@ public class SmokeTestCase1 extends BaseTestClass{
 	
 	PageFactory.initElements(driver, AddInvoicePage.class);
 	AddInvoicePage.addInvoiceButton.click();
+	Thread.sleep(1000);
 	if(AddInvoicePage.invoiceNo.isEnabled()) {
 		AddInvoicePage.invoiceNo.sendKeys("SMTC1");
 	}

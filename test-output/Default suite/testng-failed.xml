@@ -5,8 +5,11 @@
     <classes>
       <class name="smokeTestCases.SmokeTestCase1">
         <methods>
+          <include name="project" invocation-numbers="1"/>
           <include name="invoice" invocation-numbers="0 1"/>
+          <include name="timeEntries" invocation-numbers="1"/>
           <include name="loginPage"/>
+          <include name="expenseEntries" invocation-numbers="1"/>
         </methods>
       </class> <!-- smokeTestCases.SmokeTestCase1 -->
     </classes>
